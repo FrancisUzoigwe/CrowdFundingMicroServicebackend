@@ -12,7 +12,6 @@ const Server = app.listen(realPort, () => {
 process.on("uncaughtException", (error) => {
   console.log("");
   console.log("Server is shutting down due to and uncaught exception", error);
-
   process.exit(1);
 });
 
@@ -23,4 +22,5 @@ process.on("unhandledRejection", (reason) => {
   Server.close(() => {
     process.exit(1);
   });
+  
 });
