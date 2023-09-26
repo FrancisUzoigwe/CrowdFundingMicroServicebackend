@@ -22,6 +22,7 @@ export const CreateAccount = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const account = await prisma.crowdModel.create({
+      
       data: { email, password },
     });
     return res.status(STATUS.CREATED).json({
