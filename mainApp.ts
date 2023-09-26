@@ -1,9 +1,11 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
+import auth from "./router/AuthRouter";
 import { ErrorFile, STATUS } from "./error/ErrorFile";
-import { ErrorHandler, handleError } from "./error/ErrorHandler";
+import { ErrorHandler } from "./error/ErrorHandler";
 
 export const mainApp = (app: Application) => {
+  app.use(express.json())
   app.use(
     cors({
       origin: "*",
@@ -22,6 +24,7 @@ export const mainApp = (app: Application) => {
       });
     }
   });
+  app.use("/api/v1", auth);
   app.all(
     "/",
     (error: ErrorFile, req: Request, res: Response, next: NextFunction) => {

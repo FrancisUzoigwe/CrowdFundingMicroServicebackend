@@ -11,7 +11,7 @@ export interface iError {
   errorSuccess: boolean;
   errorStatus: STATUS;
 }
-
+// class exportation
 export class ErrorFile extends Error {
   public readonly errorName: string;
   public readonly errorMessage: string;

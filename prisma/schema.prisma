@@ -10,13 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model crowdAuthModel {
-  id        String  @id @default(uuid())
+model crowdModel {
   email     String  @unique
-  password  String
-  token     String
-  verified  Boolean
-  secretKey String
-  profile   Json
-  abeg      Json
+  password  String?
+  id        String @id @default(uuid())
+  token     String?
+  verified  Boolean?
+  secretKey String?
+  profile   Json?
+  abeg      Json?
 }
